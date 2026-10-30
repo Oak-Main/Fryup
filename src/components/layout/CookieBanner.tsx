@@ -4,19 +4,33 @@ export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('fryup_cookie_consent');
-    if (!consent) {
+    try {
+      const consent = localStorage.getItem('fryup_cookie_consent');
+      if (!consent) {
+        setVisible(true);
+      }
+    } catch {
+      // Storage is blocked in this browser: still show the preferences so the
+      // visitor can choose, and simply do not remember the choice.
       setVisible(true);
     }
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem('fryup_cookie_consent', 'accepted');
+    try {
+      localStorage.setItem('fryup_cookie_consent', 'accepted');
+    } catch {
+      // Storage is blocked: the choice applies to this page view only.
+    }
     setVisible(false);
   };
 
   const handleReject = () => {
-    localStorage.setItem('fryup_cookie_consent', 'essential_only');
+    try {
+      localStorage.setItem('fryup_cookie_consent', 'essential_only');
+    } catch {
+      // Storage is blocked: the choice applies to this page view only.
+    }
     setVisible(false);
   };
 

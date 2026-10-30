@@ -5,30 +5,49 @@ interface Props {
   title: string;
 }
 
+interface SavedFavourite {
+  slug: string;
+  title: string;
+  savedAt: string;
+}
+
 export default function FavouriteButton({ slug, title }: Props) {
   const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('fryup_favourites');
-    if (saved) {
+    try {
+      const saved = localStorage.getItem('fryup_favourites');
+      if (!saved) return;
       const list = JSON.parse(saved);
-      setIsSaved(list.some((item: any) => item.slug === slug));
+      if (Array.isArray(list)) {
+        setIsSaved(list.some((item: SavedFavourite) => item?.slug === slug));
+      }
+    } catch {
+      // Storage is blocked or the saved list is malformed: start unsaved.
     }
   }, [slug]);
 
   const toggleSave = () => {
-    const saved = localStorage.getItem('fryup_favourites');
-    let list = saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('fryup_favourites');
+      let list: SavedFavourite[] = [];
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          list = parsed as SavedFavourite[];
+        }
+      }
 
-    if (isSaved) {
-      list = list.filter((item: any) => item.slug !== slug);
-      setIsSaved(false);
-    } else {
-      list.push({ slug, title, savedAt: new Date().toISOString() });
-      setIsSaved(true);
+      const next = isSaved
+        ? list.filter((item) => item.slug !== slug)
+        : [...list, { slug, title, savedAt: new Date().toISOString() }];
+
+      // Store first, so the button never claims a save that did not happen.
+      localStorage.setItem('fryup_favourites', JSON.stringify(next));
+      setIsSaved(!isSaved);
+    } catch {
+      // Storage is blocked or the saved list is malformed: leave it as it was.
     }
-
-    localStorage.setItem('fryup_favourites', JSON.stringify(list));
   };
 
   return (
