@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { renderPacketArticle, type Packet } from '../../src/lib/packet-render';
 
-const slugs = ['bubble-and-squeak', 'bubble-and-squeak-with-fried-eggs'];
+const slugs = ['bubble-and-squeak', 'bubble-and-squeak-with-fried-eggs', 'bubble-and-squeak-cakes', 'bubble-and-squeak-eggs-benedict'];
 
 describe.each(slugs)('%s leftover reheating', (slug) => {
   const packet = JSON.parse(readFileSync(new URL(`../../src/content/packets/${slug}.json`, import.meta.url), 'utf8')) as Packet;
@@ -21,8 +21,15 @@ describe.each(slugs)('%s leftover reheating', (slug) => {
   it('limits leftover storage and repeat reheating without changing article structure', () => {
     expect(html).toContain('within 2 days of originally cooking');
     expect(html).not.toContain('3 days refrigerated');
-    expect(html).toMatch(/reheat(?:ed)? only once|do not reheat them again/);
+    expect(html).toMatch(/reheat(?:ed)? only once|reheat the (?:cooked ingredients|cakes) only once|do not reheat them again/i);
+    expect(html).not.toMatch(/cooked cakes keep 3 days|re-crust in [34] minutes/i);
     expect((html.match(/data-rpc="content"/g) ?? []).length).toBe(1);
     expect(html).toContain('data-lock="instructions"');
   });
+});
+
+it('does not promise a fixed time will heat frozen cakes through', () => {
+  const packet = JSON.parse(readFileSync(new URL('../../src/content/packets/bubble-and-squeak-cakes.json', import.meta.url), 'utf8'));
+  expect(packet.skeleton).not.toMatch(/cooks through from frozen in 5 minutes/i);
+  expect(packet.skeleton).toMatch(/cook from frozen[\s\S]*?75 °C for 30 seconds/i);
 });
