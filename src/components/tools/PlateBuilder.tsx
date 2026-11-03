@@ -101,7 +101,7 @@ export default function PlateBuilder() {
         {/* Plate Preview & Ingredients */}
         <div className="space-y-6">
           <div>
-            <h3 className="text-xs font-semibold uppercase text-amber-600 mb-3">3. Consolidated Ingredient List ({diners} {diners === 1 ? 'Diner' : 'Diners'})</h3>
+            <h2 className="text-xs font-semibold uppercase text-amber-600 mb-3">3. Consolidated Ingredient List ({diners} {diners === 1 ? 'Diner' : 'Diners'})</h2>
             <div className="bg-stone-50 p-4 rounded-lg border border-stone-200 space-y-2 text-sm text-stone-700">
               {activeComponents.map(comp => {
                 const nutrition = nutritionForPlateComponent(comp.id);

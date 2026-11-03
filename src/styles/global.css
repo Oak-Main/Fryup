@@ -30,6 +30,15 @@
     color: var(--color-ink-primary);
   }
 
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid var(--color-accent-yolk);
+    outline-offset: 3px;
+  }
+
   /* Tabular numbers for times, temps, and measurements */
   .tabular-nums {
     font-variant-numeric: tabular-nums;
