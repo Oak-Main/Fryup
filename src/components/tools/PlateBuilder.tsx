@@ -136,7 +136,7 @@ export default function PlateBuilder() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase text-amber-600 mb-2">Equipment Needed</h3>
+            <h2 className="text-xs font-semibold uppercase text-amber-600 mb-2">Equipment Needed</h2>
             <ul className="text-xs text-stone-600 list-disc list-inside space-y-1">
               <li>Heavy 30cm Cast Iron Skillet or Frying Pan</li>
               <li>Small Saucepan for Baked Beans</li>
@@ -149,7 +149,7 @@ export default function PlateBuilder() {
         {/* Synchronized Timeline */}
         <div className="space-y-6">
           <div>
-            <h3 className="text-xs font-semibold uppercase text-amber-600 mb-3">4. Synchronized Cook Schedule</h3>
+            <h2 className="text-xs font-semibold uppercase text-amber-600 mb-3">4. Synchronized Cook Schedule</h2>
             <div className="bg-stone-50 p-4 rounded-lg border border-stone-200 space-y-4">
               <p className="text-xs text-stone-600">Total Active Cooking Window: <strong className="text-amber-600">{maxCookTime} Minutes</strong></p>
               
