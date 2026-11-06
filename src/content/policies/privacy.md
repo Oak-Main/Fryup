@@ -1,17 +1,19 @@
 ---
 title: "Privacy Policy"
-description: "UK ICO and GDPR compliant privacy statement."
-lastUpdated: "2026-07-27"
+description: "Current data practices and outstanding policy review."
+lastUpdated: "2026-11-06"
 ---
 
 # Privacy Policy
 
-UK ICO and GDPR compliant privacy statement.
+## Reading the site
+You can browse Fryup without an account. Selected favourites and your cookie choice are stored in your browser.
 
-## Overview
-Fryup.UK is committed to complete transparency, user privacy, and high editorial standards.
+## Measurement and hosting
+Application ad and affiliate modules are disabled. The custom-domain proxy's automatic Google Analytics insertion has been paused. Hosting or CDN services can operate separately from application code; the owner must complete their purpose, recipient and retention inventory.
 
-## Key Policies
-1. **Data Minimization**: Fryup.UK requires no user accounts. All user preferences (favourites, shopping lists) are stored strictly in your local browser storage.
-2. **Editorial Standards**: All recipes are original formulations derived from verified UK culinary sources and FSA food safety frameworks.
-3. **Contact**: For editorial questions or corrections, please contact the Fryup.UK Editorial Kitchen through the [Contact & Corrections](/contact/) page.
+## Contact
+Send privacy and data-rights questions to [privacy@fryup.uk](mailto:privacy@fryup.uk). This address has an enabled route through the existing mail gateway to the owner's inbox. Response timing has not been independently tested.
+
+## Outstanding review
+The controller identity and service address, rights-handling process, retention and applicable legal requirements remain under review. This technical update does not certify legal compliance.

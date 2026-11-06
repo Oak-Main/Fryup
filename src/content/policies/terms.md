@@ -1,17 +1,16 @@
 ---
 title: "Terms of Use"
-description: "Website terms and conditions of use."
-lastUpdated: "2026-07-27"
+description: "Terms review status and published contact routes."
+lastUpdated: "2026-11-06"
 ---
 
 # Terms of Use
 
-Website terms and conditions of use.
+## Review status
+The website's substantive Terms of Use are awaiting qualified legal review. Governing law, venue and other legal decisions remain unresolved.
 
-## Overview
-Fryup.UK is committed to complete transparency, user privacy, and high editorial standards.
+## Site information
+Recipes and tools are editorial cooking resources. Review ingredient and method information before cooking, and contact the editorial team for corrections.
 
-## Key Policies
-1. **Data Minimization**: Fryup.UK requires no user accounts. All user preferences (favourites, shopping lists) are stored strictly in your local browser storage.
-2. **Editorial Standards**: All recipes are original formulations derived from verified UK culinary sources and FSA food safety frameworks.
-3. **Contact**: For editorial questions or corrections, please contact the Fryup.UK Editorial Kitchen through the [Contact & Corrections](/contact/) page.
+## Contact
+Use [hello@fryup.uk](mailto:hello@fryup.uk) for general enquiries and [privacy@fryup.uk](mailto:privacy@fryup.uk) for privacy requests. These addresses route through the existing gateway to the owner's inbox. Receipt and response times have not been independently tested.

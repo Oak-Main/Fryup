@@ -1,17 +1,14 @@
 ---
 title: "Contact & Corrections"
-description: "Contact details for the Fryup.UK editorial team."
-lastUpdated: "2026-07-27"
+description: "Published editorial and privacy addresses."
+lastUpdated: "2026-11-06"
 ---
 
 # Contact & Corrections
 
-Contact details for the Fryup.UK editorial team.
+- Editorial questions and corrections can be sent to [hello@fryup.uk](mailto:hello@fryup.uk).
+- Privacy and data-rights requests can be sent to [privacy@fryup.uk](mailto:privacy@fryup.uk).
 
-## Overview
-Fryup.UK is committed to complete transparency, user privacy, and high editorial standards.
+Both literal addresses have enabled Cloudflare Email Routing rules to the existing mail gateway. Its live configuration forwards messages to the owner's inbox. This review checked routing configuration and did not send test email.
 
-## Key Policies
-1. **Data Minimization**: Fryup.UK requires no user accounts. All user preferences (favourites, shopping lists) are stored strictly in your local browser storage.
-2. **Editorial Standards**: All recipes are original formulations derived from verified UK culinary sources and FSA food safety frameworks.
-3. **Contact**: For editorial questions or corrections, please contact the Fryup.UK Editorial Kitchen at [CONTACT EMAIL REQUIRED].
+The publisher service address, response process and legal-review record remain outstanding.
