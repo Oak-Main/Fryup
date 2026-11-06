@@ -1,17 +1,16 @@
 ---
 title: "Affiliate & Commercial Disclosure"
-description: "Transparency regarding future advertising and affiliate links."
-lastUpdated: "2026-07-27"
+description: "Current advertising and affiliate activation status."
+lastUpdated: "2026-11-06"
 ---
 
 # Affiliate & Commercial Disclosure
 
-Transparency regarding future advertising and affiliate links.
+## Current status
+The reviewed site configuration disables the advertising and affiliate modules. Example identifiers in source configuration do not establish merchant approval or a working referral.
 
-## Overview
-Fryup.UK is committed to complete transparency, user privacy, and high editorial standards.
+## Before activation
+A commercial placement requires a real destination and verified relationship. The relationship and any commission must be disclosed near the relevant action. Partner selection and the final wording remain subject to owner and qualified review.
 
-## Key Policies
-1. **Data Minimization**: Fryup.UK requires no user accounts. All user preferences (favourites, shopping lists) are stored strictly in your local browser storage.
-2. **Editorial Standards**: All recipes are original formulations derived from verified UK culinary sources and FSA food safety frameworks.
-3. **Contact**: For editorial questions or corrections, please contact the Fryup.UK Editorial Kitchen through the [Contact & Corrections](/contact/) page.
+## Contact
+For commercial or editorial questions use [hello@fryup.uk](mailto:hello@fryup.uk). Privacy questions go to [privacy@fryup.uk](mailto:privacy@fryup.uk).

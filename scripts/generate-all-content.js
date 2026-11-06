@@ -348,7 +348,7 @@ console.log(`Successfully generated 15 guide files in ${GUIDES_DIR}`);
 
 // Generate 9 Policy Markdown Files
 const policiesList = [
-  { slug: "privacy", title: "Privacy Policy", desc: "UK ICO and GDPR compliant privacy statement." },
+  { slug: "privacy", title: "Privacy Policy", desc: "Current data practices and outstanding policy review." },
   { slug: "cookies", title: "Cookie Policy", desc: "Cookie consent and browser storage policy." },
   { slug: "terms", title: "Terms of Use", desc: "Website terms and conditions of use." },
   { slug: "affiliate-disclosure", title: "Affiliate & Commercial Disclosure", desc: "Transparency regarding future advertising and affiliate links." },
@@ -358,6 +358,15 @@ const policiesList = [
   { slug: "accessibility", title: "Accessibility Statement", desc: "WCAG 2.2 AA accessibility commitments." },
   { slug: "contact", title: "Contact & Corrections", desc: "Contact details for the Fryup.UK editorial team." }
 ];
+
+// Current reviewed technical facts override the original generic policy scaffold.
+const policyOverrides = {
+  "privacy": "---\ntitle: \"Privacy Policy\"\ndescription: \"Current data practices and outstanding policy review.\"\nlastUpdated: \"2026-11-06\"\n---\n\n# Privacy Policy\n\n## Reading the site\nYou can browse Fryup without an account. Selected favourites and your cookie choice are stored in your browser.\n\n## Measurement and hosting\nApplication ad and affiliate modules are disabled. The custom-domain proxy's automatic Google Analytics insertion has been paused. Hosting or CDN services can operate separately from application code; the owner must complete their purpose, recipient and retention inventory.\n\n## Contact\nSend privacy and data-rights questions to [privacy@fryup.uk](mailto:privacy@fryup.uk). This address has an enabled route through the existing mail gateway to the owner's inbox. Response timing has not been independently tested.\n\n## Outstanding review\nThe controller identity and service address, rights-handling process, retention and applicable legal requirements remain under review. This technical update does not certify legal compliance.\n",
+  "cookies": "---\ntitle: \"Cookie Policy\"\ndescription: \"Browser storage and hosting measurement facts.\"\nlastUpdated: \"2026-11-06\"\n---\n\n# Cookie Policy\n\n## Application storage\n- `fryup_favourites` stores saved recipe choices.\n- `fryup_cookie_consent` records the banner choice, including Essential Only.\n- You can clear these values in your browser settings.\n\n## Optional measurement\nThe custom-domain proxy's automatic Google Analytics insertion is paused. Accept All does not activate that paused tag. Platform-managed cookies and telemetry require a separate inventory. The observed `cf_zaraz_client` cookie has not been assigned a verified purpose or retention period in this review.\n\n## Questions\nContact [privacy@fryup.uk](mailto:privacy@fryup.uk) or use [Contact & Corrections](/contact/). The complete notice and consent design require qualified review before optional measurement is enabled.\n",
+  "terms": "---\ntitle: \"Terms of Use\"\ndescription: \"Terms review status and published contact routes.\"\nlastUpdated: \"2026-11-06\"\n---\n\n# Terms of Use\n\n## Review status\nThe website's substantive Terms of Use are awaiting qualified legal review. Governing law, venue and other legal decisions remain unresolved.\n\n## Site information\nRecipes and tools are editorial cooking resources. Review ingredient and method information before cooking, and contact the editorial team for corrections.\n\n## Contact\nUse [hello@fryup.uk](mailto:hello@fryup.uk) for general enquiries and [privacy@fryup.uk](mailto:privacy@fryup.uk) for privacy requests. These addresses route through the existing gateway to the owner's inbox. Receipt and response times have not been independently tested.\n",
+  "affiliate-disclosure": "---\ntitle: \"Affiliate & Commercial Disclosure\"\ndescription: \"Current advertising and affiliate activation status.\"\nlastUpdated: \"2026-11-06\"\n---\n\n# Affiliate & Commercial Disclosure\n\n## Current status\nThe reviewed site configuration disables the advertising and affiliate modules. Example identifiers in source configuration do not establish merchant approval or a working referral.\n\n## Before activation\nA commercial placement requires a real destination and verified relationship. The relationship and any commission must be disclosed near the relevant action. Partner selection and the final wording remain subject to owner and qualified review.\n\n## Contact\nFor commercial or editorial questions use [hello@fryup.uk](mailto:hello@fryup.uk). Privacy questions go to [privacy@fryup.uk](mailto:privacy@fryup.uk).\n",
+  "contact": "---\ntitle: \"Contact & Corrections\"\ndescription: \"Published editorial and privacy addresses.\"\nlastUpdated: \"2026-11-06\"\n---\n\n# Contact & Corrections\n\n- Editorial questions and corrections can be sent to [hello@fryup.uk](mailto:hello@fryup.uk).\n- Privacy and data-rights requests can be sent to [privacy@fryup.uk](mailto:privacy@fryup.uk).\n\nBoth literal addresses have enabled Cloudflare Email Routing rules to the existing mail gateway. Its live configuration forwards messages to the owner's inbox. This review checked routing configuration and did not send test email.\n\nThe publisher service address, response process and legal-review record remain outstanding.\n"
+};
 
 for (const p of policiesList) {
   const content = `---
@@ -376,8 +385,8 @@ Fryup.UK is committed to complete transparency, user privacy, and high editorial
 ## Key Policies
 1. **Data Minimization**: Fryup.UK requires no user accounts. All user preferences (favourites, shopping lists) are stored strictly in your local browser storage.
 2. **Editorial Standards**: All recipes are original formulations derived from verified UK culinary sources and FSA food safety frameworks.
-3. **Contact**: For editorial questions or corrections, please contact the Fryup.UK Editorial Kitchen ${p.slug === 'contact' ? 'at [CONTACT EMAIL REQUIRED]' : 'through the [Contact & Corrections](/contact/) page'}.
+3. **Contact**: For editorial questions or corrections, please contact the Fryup.UK Editorial Kitchen ${p.slug === 'contact' ? 'at [hello@fryup.uk](mailto:hello@fryup.uk)' : 'through the [Contact & Corrections](/contact/) page'}.
 `;
-  fs.writeFileSync(path.join(POLICIES_DIR, `${p.slug}.md`), content);
+  fs.writeFileSync(path.join(POLICIES_DIR, `${p.slug}.md`), policyOverrides[p.slug] ?? content);
 }
 console.log(`Successfully generated 9 policy files in ${POLICIES_DIR}`);
